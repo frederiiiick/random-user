@@ -6,7 +6,6 @@ type Props = {
     loading?: boolean;
 };
 
-
 const SimpleUserProfile = ({ user, loading }: Props) => {
     const formatName = (name: NameType) => {
         const fullname = `${name?.first} ${name?.last}`;
