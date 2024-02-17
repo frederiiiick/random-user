@@ -1,0 +1,26 @@
+:root {
+    --dark-purple: #3C1642;
+    --blue-green: #086375;
+    --neon-blue: #1DD3B0;
+    --lime-green: #AFFC41;
+    --apple-green: #B2FF9E;
+
+    --apple-green-light: #B2FF9E90;
+    --blue-green-light: #08637560;
+}
+
+body {
+    margin: 0;
+    background-color: var(--dark-purple);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    ::selection {
+        color: var(--neon-blue);
+        background: var(--dark-purple);
+    }
+}
