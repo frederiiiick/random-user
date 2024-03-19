@@ -9,6 +9,19 @@ const App = () => {
 	const [user, setUser] = useState<IUser>({});
 	const [loading, setLoading] = useState(false);
 
+	useEffect(() => {
+		const init = () => {
+			const saveName = localStorage.getItem('savedName');
+			if (saveName) {
+				setUser(JSON.parse(saveName));
+			} else {
+				fetchData();
+			}
+		};
+
+		init();
+	}, [])
+
 	const fetchData = async () => {
 		setLoading(prev => !prev);
 		try {
@@ -24,19 +37,6 @@ const App = () => {
 		}
 	};
 
-	useEffect(() => {
-		const init = () => {
-			const saveName = localStorage.getItem('savedName');
-			if (saveName) {
-				setUser(JSON.parse(saveName));
-			} else {
-				fetchData();
-			}
-		};
-
-		init();
-	}, [])
-
 	return (
 		<div className="App">
 			<SimpleUserProfile user={user} loading={loading} />
@@ -45,5 +45,6 @@ const App = () => {
 		</div>
 	);
 }
+
 
 export default App;

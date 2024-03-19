@@ -1,10 +1,10 @@
 export interface IName {
-    title: string;
-    first: string;
-    last: string;
+  title: string;
+  first: string;
+  last: string;
 }
 
 export interface IUser {
-    name?: IName;
-    email?: string;
-  }
+  name?: IName;
+  email?: string;
+}
