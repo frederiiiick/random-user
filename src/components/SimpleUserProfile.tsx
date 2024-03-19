@@ -1,27 +1,20 @@
-import { NameType, UserType } from "../types";
+import { IName, IUser } from "../Interfaces";
 import styled from "styled-components";
 
 type Props = {
-    user: UserType;
+    user: IUser;
     loading?: boolean;
 };
 
 const SimpleUserProfile = ({ user, loading }: Props) => {
-    const formatName = (name: NameType) => {
+    const formatName = (name: IName) => {
         const fullname = `${name?.first} ${name?.last}`;
-        if (name.title === 'Mr' || name.title === 'Ms' || name.title === 'Mrs') {
-            return `${name?.title}. ${fullname}`
-        } else {
-            return `${name?.title} ${fullname}`
-        }
+        return (name?.title === 'Mr' || name?.title === 'Ms' || name?.title === 'Mrs') ? `${name?.title}. ${fullname}` : `${name?.title} ${fullname}`;
     };
 
     return (
         <UserContainer className={`${loading && 'loading'}`}>
-            {
-                user.name &&
-                <p className='name'> {formatName(user.name)} </p>
-            }
+            <p className='name'> {formatName(user.name!)} </p>
             <span className='email'>{user.email}</span>
         </UserContainer>
     );

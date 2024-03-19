@@ -1,10 +1,10 @@
-export type NameType = {
+export interface IName {
     title: string;
     first: string;
     last: string;
 }
 
-export type UserType = {
-    name?: NameType;
+export interface IUser {
+    name?: IName;
     email?: string;
   }
